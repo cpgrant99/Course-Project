@@ -1,4 +1,9 @@
 
+run_analysis<-function(){
+
+library(dplyr)
+
+##read files
 activity_labels <- read.table("activity_labels.txt",col.names=c("activity_code","activity"))
 features <- read.table("features.txt")
 subject_test <- read.table("subject_test.txt",col.names="subject")
@@ -7,8 +12,6 @@ x_test <- read.table("x_test.txt",col.names=features$V2)
 x_train <- read.table("x_train.txt",col.names=features$V2)
 y_test<- read.table("y_test.txt",col.names="activity_code")
 y_train <- read.table("y_train.txt",col.names="activity_code")
-
-run_analysis<-function(){
   
 ##combine test and train observations
 x_all<-rbind(x_test,x_train)
@@ -26,8 +29,10 @@ std_mn<-grep(("std|mean\\b"),features$V2)
 ##merge all tables into one
 combined_data<-cbind(x_all[,std_mn],subjects,activities)
 
-##create second df by grouping and summarizing activity & subject variables
-df2<-combined_data%>%group_by(activity,subject)%>%summarise_each(funs(mean))
+##create tidy table by grouping and summarizing activity & subject variables
+tidy_df<-combined_data%>%group_by(activity,subject)%>%summarise_each(funs(mean))
+
+View(tidy_df)
 }
   
 
