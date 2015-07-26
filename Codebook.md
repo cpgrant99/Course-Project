@@ -11,11 +11,11 @@
 
 - 'X_test.txt' and 'X_train.txt': 2947 test and 7352 train vectors of 561 measurements
 
-- 'y_test.txt' and 'y_train.txt': 2947 test and 7352 train activity codes, coded 1-6
+- 'y_test.txt' and 'y_train.txt': 2947 test and 7352 train physical activity codes, coded 1-6
 
 - 'subject_test' and 'subject_train': Subjects who perfomed the experiments, coded 1-30
 
-- 'activity_labels.txt': Names of experiment activities
+- 'activity_labels.txt': Names of experiment physical activities
 
 ***
 
@@ -25,7 +25,7 @@
 
 2. Vertically append x (measurements), y (activity codes), and subject test and train tables
 
-3. Join 'activity labels' table to y table
+3. Join activity labels table to activity codes table
 
 4. Concatenate x, y and subject tables
 
