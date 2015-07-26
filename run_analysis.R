@@ -30,7 +30,7 @@ std_mn<-grep(("std|mean\\b"),features$V2)
 combined_data<-cbind(x_all[,std_mn],subjects,activities)
 
 ##create tidy table by grouping and summarizing activity & subject variables
-tidy_df<-combined_data%>%group_by(activity,subject)%>%summarise_each(funs(mean))
+tidy_df<-combined_data %>% group_by(activity,subject) %>% summarise_each(funs(mean))
 
 View(tidy_df)
 }
