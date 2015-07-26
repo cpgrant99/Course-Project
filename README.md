@@ -7,14 +7,15 @@ The purpose of this project is to combine multiple data sets in a logical way, s
 My approach for the project was to create a "master" table with all data included then subset per the assignment parameters.
 
 ####Process
-1. The dplyr package contains tools for easier manipulation of data frames.
+1. Load dplyr package for easier manipulation of data frames.
 
 2. Column label names are assigned at the time files are read in. 'features' is read in first so that the table's second column can be assigned as column names for the 'x' data sets. R automatically converts '()-' characters in 'features.txt' to '...' but no information is lost because of the conversion.
-3.Test and train measurement data sets are combined vertically (row-by-row). Resulting table has 561 columns and 10299 rows of measurement data.
 
-4.Test and train activities data sets are combined vertically and merged with labels table. A join was chosen because it preserves the original order of the activities data. Resulting table has 10299 activity code and description rows corresponding to measurement data.
+3. Test and train measurement data sets are combined vertically (row-by-row). Resulting table has 561 columns and 10299 rows of measurement data.
 
-5.Subject test and train data is combined vertically, resulting in a 10299-item list of subject codes corresponding to measurement data and activities.  
+4. Test and train activities data sets are combined vertically and merged with labels table. A join was chosen because it preserves the original order of the activities data. Resulting table has 10299 activity code and description rows corresponding to measurement data.
+
+5. Subject test and train data is combined vertically, resulting in a 10299-item list of subject codes corresponding to measurement data and activities.  
 
 6. Create index vector to select for standard deviations and means. Regular expression does not select occurrences of 'gravityMean' or 'meanFreq.'
 
